@@ -13,7 +13,7 @@ while ges_name!='/':
         os.mkdir('Dataset\\' + ges_name)
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
-        print ("Could not open camera")
+        print ("Could not open cam")
         exit()
 
     print('Collecting images for {}'.format(ges_name))

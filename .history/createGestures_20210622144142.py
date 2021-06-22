@@ -1,6 +1,17 @@
+#  img = cv2.rectangle(frame, (425, 100), (625, 300), (0, 255, 0), thickness=2, lineType=8, shift=0)
+
+#            lower_blue = np.array([l_h, l_s, l_v])
+ #           upper_blue = np.array([u_h, u_s, u_v])
+  #          imcrop = img[102:298, 427:623]
+   #         hsv = cv2.cvtColor(imcrop, cv2.COLOR_BGR2HSV)
+    #        mask = cv2.inRange(hsv, lower_blue, upper_blue)
+
+     #       result = cv2.bitwise_and(imcrop, imcrop, mask=mask)
+
 import cv2
 import os
 import time
+import uuid
 
 IMAGES_PATH = 'Dataset'
 
@@ -13,7 +24,7 @@ while ges_name!='/':
         os.mkdir('Dataset\\' + ges_name)
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
-        print ("Could not open camera")
+        print ("Could not open cam")
         exit()
 
     print('Collecting images for {}'.format(ges_name))
@@ -31,7 +42,7 @@ while ges_name!='/':
         ROI = frame[100:400, 200:500].copy()
         cv2.imshow('Current Roi', ROI)
 
-        if imgnum == 0 or imgnum == 1 or imgnum == 2 or imgnum == 3:
+        if imgnum == 0 or imgnum == 1 or imgnum == 3 or imgnum == 4:
             continue
         else:
             imgname = os.path.join(IMAGES_PATH, ges_name, '{}.jpg'.format(str(imgnum-3)))
@@ -39,7 +50,7 @@ while ges_name!='/':
 
 
 
-        time.sleep(2)
+        time.sleep(3)
     
 
 
